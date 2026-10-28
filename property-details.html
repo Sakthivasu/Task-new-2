@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly - Property Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- PRELOADER ANIMATION (Static Dotted Ring - No Rotation, Slow Smooth Load) -->
+<div id="preloader" class="preloader-overlay">
+    <div class="loader-content">
+        <div class="loader-logo-ring">
+            <img src="img/logo (2).webp" alt="Stackly Logo" class="loader-logo-img">
+        </div>
+        <div class="house-animation">
+            <i class="fa-solid fa-house-chimney-window house-icon"></i>
+        </div>
+        <p class="loader-subtitle">Loading Your Dream Spaces...</p>
+        
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-number" id="progressPercent">0%</div>
+    </div>
+</div>
+    <!-- Header Navigation (Services Included) -->
+    <header>
+        <div class="logo-container">
+            <img src="img/logo (2).webp" alt="Stackly Logo" class="logo-img">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="property-details.html" class="active">Properties</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="header-actions">
+            <div class="wishlist-btn-container" id="wishlistBtn" title="Saved Favorites">
+                <i class="fa-solid fa-heart wishlist-icon"></i>
+                <span class="wishlist-count" id="wishlistCount">0</span>
+            </div>
+            <a href="login.html" class="btn-nav-login inactive-login">Login</a>
+            <a href="index.html" class="btn-nav-signup inactive-signup">Sign Up</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="details-container">
+        
+        <div class="property-top-grid">
+            <!-- Gallery Section -->
+            <div class="gallery-section">
+                <div class="main-img-box">
+                    <img id="mainPropertyImg" src="img/clay-banks-364plyVT2eQ-unsplash.webp" alt="Property View">
+                    <span class="property-tag" id="propTagDisplay">For Rent</span>
+                </div>
+                <div class="thumbnail-row">
+                    <img src="img/clay-banks-364plyVT2eQ-unsplash.webp" alt="Thumb" onclick="changeImage(this, 0)">
+                    <img src="img/francesca-tosolini-Gu4R-0lwXvk-unsplash.webp" alt="Thumb" onclick="changeImage(this, 1)">
+                    <img src="img/d5-render-O3LR3ZI5Ams-unsplash.webp" alt="Thumb" onclick="changeImage(this, 2)">
+                    <div class="thumb-more" id="openGalleryModal">
+                        <img src="img/point3d-commercial-imaging-ltd-hfXcKWPGxQs-unsplash.webp" alt="Thumb">
+                        <span>+12</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Info Card -->
+            <div class="property-info-card">
+                <div class="title-badge-row">
+                    <h1 id="propTitleDisplay">Luxury 3 BHK Villa</h1>
+                    <span class="badge-rent" id="propBadgeDisplay">For Rent</span>
+                </div>
+                <p class="property-loc-text" id="propLocationText"><i class="fa-solid fa-location-dot"></i> Whitefield, Bangalore</p>
+
+                <div class="specs-grid">
+                    <div class="spec-item"><i class="fa-solid fa-bed"></i> <span id="propBedsDisplay">3</span> Beds</div>
+                    <div class="spec-item"><i class="fa-solid fa-bath"></i> <span id="propBathsDisplay">3</span> Baths</div>
+                    <div class="spec-item"><i class="fa-solid fa-vector-square"></i> <span id="propSqftDisplay">2,400</span> sqft</div>
+                </div>
+
+                <div class="price-row">
+                    <span class="currency-symbol">₹</span>
+                    <span class="price-amount" id="propPriceDisplay">25,000</span>
+                    <span class="price-duration" id="propDurationDisplay">/month</span>
+                </div>
+
+                <div class="action-buttons-row">
+                    <button class="btn-book-now" id="openBookModal"><i class="fa-solid fa-calendar-check"></i> Book Now</button>
+                    <button class="btn-schedule" id="openScheduleModal"><i class="fa-solid fa-clock"></i> Schedule & Visit</button>
+                </div>
+
+                <!-- Amenities Options Checkbox -->
+                <div class="amenities-selection-title">Select Included Amenities:</div>
+                <div class="amenities-icons-grid" id="amenitiesCheckboxGroup">
+                    <label class="amenity-chip"><input type="checkbox" value="Furnished" checked> <i class="fa-solid fa-couch"></i> Furnished</label>
+                    <label class="amenity-chip"><input type="checkbox" value="Swimming Pool" checked> <i class="fa-solid fa-person-swimming"></i> Pool</label>
+                    <label class="amenity-chip"><input type="checkbox" value="Power Backup" checked> <i class="fa-solid fa-bolt"></i> Backup</label>
+                    <label class="amenity-chip"><input type="checkbox" value="Gated Community" checked> <i class="fa-solid fa-shield-halved"></i> Gated</label>
+                    <label class="amenity-chip"><input type="checkbox" value="24/7 Security" checked> <i class="fa-solid fa-video"></i> Security</label>
+                    <label class="amenity-chip"><input type="checkbox" value="Car Parking" checked> <i class="fa-solid fa-car"></i> Parking</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Tabs -->
+        <div class="property-bottom-grid">
+            <div class="left-content-area" style="flex: 2;">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('overview', this)">Overview</button>
+                    <button class="tab-btn" onclick="switchTab('location', this)">Location Map</button>
+                    <button class="tab-btn" onclick="switchTab('amenities', this)">Amenities</button>
+                    <button class="tab-btn" onclick="switchTab('reviews', this)">Reviews</button>
+                </div>
+
+                <!-- Tab 1: Overview -->
+                <div id="tab-overview" class="tab-content active">
+                    <h3>About This Property</h3>
+                    <p id="propDescDisplay">Properties built for people to live in, including single-family homes, apartments, townhouses, and condominiums with high-end architecture and premium community access.</p>
+                </div>
+
+                <!-- Tab 2: Location Map -->
+                <div id="tab-location" class="tab-content">
+                    <h3>Location & Google Map</h3>
+                    <p><i class="fa-solid fa-location-dot" style="color:#2563eb;"></i> <strong id="locationAddressDisplay">Whitefield, Bangalore</strong></p>
+                    <div class="map-container-box" style="margin-top: 15px;">
+                        <iframe id="propertyMapIframe" width="100%" height="280" style="border:0; border-radius:12px;" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1"></iframe>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Amenities -->
+                <div id="tab-amenities" class="tab-content">
+                    <h3>All Included Amenities</h3>
+                    <div class="full-amenities-list" id="dynamicAmenitiesList" style="margin-top: 12px; display:grid; grid-template-columns: repeat(2, 1fr); gap:12px;">
+                        <span><i class="fa-solid fa-wifi"></i> Ultra High-Speed Wi-Fi</span>
+                        <span><i class="fa-solid fa-dumbbell"></i> Fitness Center & Gym</span>
+                        <span><i class="fa-solid fa-square-parking"></i> Reserved Covered Parking</span>
+                        <span><i class="fa-solid fa-tree"></i> Eco Garden Park</span>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Reviews -->
+                <div id="tab-reviews" class="tab-content">
+                    <h3>Customer Ratings & Reviews</h3>
+                    <div id="dynamicReviewsList" style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Contact Support -->
+            <div class="right-sidebar-area" style="flex: 1;">
+                <div class="manager-card" style="text-align: center; padding: 25px;">
+                    <div style="font-size: 32px; color: #2563eb; margin-bottom: 10px;"><i class="fa-solid fa-headset"></i></div>
+                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px;">Contact Support</h3>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 18px;">Connect directly with certified property experts for guidance.</p>
+                    <a href="about.html#contactSection" class="btn-contact-manager" style="display:inline-block; width:100%; background: #1e3a8a; color: #fff; padding: 11px; border-radius: 8px; font-weight: 700; text-decoration: none;">
+                        <i class="fa-solid fa-envelope"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12-IMAGE GALLERY SELECTION MODAL -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content gallery-modal-content">
+            <span class="close-modal" id="closeGalleryModal">&times;</span>
+            <h2>Select Photo from Gallery (12 Photos)</h2>
+            <p class="modal-subtitle">Click any image to select and load its complete details!</p>
+            <div class="lightbox-grid" id="lightboxGridContainer"></div>
+            <button type="button" class="btn-submit-modal" id="doneGalleryBtn" style="margin-top:20px;">Done & Apply Photo</button>
+        </div>
+    </div>
+
+    <!-- BOOK NOW MODAL -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeBookModal">&times;</span>
+            <h2>Book Property Securely</h2>
+            <p class="modal-subtitle">Provide your personal & stay requirements</p>
+            <form id="bookingForm">
+                <div class="modal-form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="bookName" placeholder="e.g. Sakthi V" required>
+                </div>
+                <div class="modal-form-group">
+                    <label>Email ID / Mobile Number</label>
+                    <input type="text" id="bookContact" placeholder="Enter phone or email" required>
+                </div>
+                <div class="modal-form-row">
+                    <div class="modal-form-group">
+                        <label>Occupation / Work</label>
+                        <input type="text" id="bookWork" placeholder="e.g. IT Developer" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label>Monthly Salary (₹)</label>
+                        <input type="number" id="bookSalary" placeholder="e.g. 75000" required>
+                    </div>
+                </div>
+                <div class="modal-form-group">
+                    <label>Selected Property Name</label>
+                    <input type="text" id="bookPropertyTitle" readonly style="background:#e2e8f0; font-weight:700;">
+                </div>
+                <div class="modal-form-row">
+                    <div class="modal-form-group">
+                        <label>Check-In Date</label>
+                        <input type="date" id="bookCheckIn" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label>Check-Out Date</label>
+                        <input type="date" id="bookCheckOut" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-modal">Confirm & Pay Advance</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCHEDULE VISIT MODAL -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeScheduleModal">&times;</span>
+            <h2>Schedule a Site Visit</h2>
+            <p class="modal-subtitle">Choose your convenient date and time slot</p>
+            <form id="scheduleForm">
+                <div class="modal-form-group">
+                    <label>Your Name</label>
+                    <input type="text" id="schedName" placeholder="Enter your name" required>
+                </div>
+                <div class="modal-form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="schedPhone" placeholder="Enter mobile number" required>
+                </div>
+                <div class="modal-form-row">
+                    <div class="modal-form-group">
+                        <label>Visit Date</label>
+                        <input type="date" id="schedDate" required>
+                    </div>
+                    <div class="modal-form-group">
+                        <label>Time Slot</label>
+                        <select id="schedSlot" required>
+                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                            <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
+                            <option value="04:30 PM - 06:30 PM">04:30 PM - 06:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit-modal">Confirm Visit Schedule</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-copy-right">&copy; 2026 Stackly Real Estate. All rights reserved.</div>
+        <div class="footer-links-right"><a href="about.html">Team</a><a href="#">Privacy</a></div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
